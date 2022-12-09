@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+
+  php8.1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 127.0.0.1:9002:9000
+    volumes:
+      - ./:/app
