@@ -40,4 +40,6 @@
 
 - Проектирование (папка designing):
   - диаграмма БД
-  - Figma
+  - [Figma](https://www.figma.com/file/Oo49p63ep2COA1AJrPpkKT/Untitled?node-id=0%3A1&t=UJnlScguqSYEpTpL-0)
+
+Научился работать с Docker. Перенял [пример](https://github.com/tarampampam/laravel-roadrunner-in-docker) докера с RoadRunner к себе на проект
