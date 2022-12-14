@@ -32,18 +32,20 @@ services:
     depends_on:
       postgres: {condition: service_healthy}
       redis: {condition: service_healthy}
+      adminer: {condition: service_started}
+
 
   web:
     <<: *app
     command: rr serve -c .rr.local.yaml
     ports:
       - '8080:8080/tcp'
-      - '8443:8443/tcp'
+#      - '8443:8443/tcp' # if you need use https
     healthcheck:
       test: ['CMD-SHELL', 'wget --spider -q "http://127.0.0.1:8082/health?plugin=http&plugin=rpc"']
       interval: 2s
       timeout: 2s
- 
+
   queue:
     <<: *app
     command: php /app/artisan queue:work --memory=256 --sleep=1
@@ -79,3 +81,9 @@ services:
       test: ['CMD', 'redis-cli', 'ping']
       interval: 500ms
       timeout: 1s
+
+  adminer:
+      image: adminer
+      restart: always
+      ports:
+          - 8081:8080

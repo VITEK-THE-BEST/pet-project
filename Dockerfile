@@ -23,7 +23,6 @@ FROM php:8.1.13-alpine as runtime
 # install composer, image page: <https://hub.docker.com/_/composer>
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-
 ENV COMPOSER_HOME="/tmp/composer"
 
 RUN set -x \
