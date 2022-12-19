@@ -39,7 +39,7 @@ services:
     <<: *app
     command: rr serve -c .rr.local.yaml
     ports:
-      - '8080:8080/tcp'
+      - '8080:8080'
 #      - '8443:8443/tcp' # if you need use https
     healthcheck:
       test: ['CMD-SHELL', 'wget --spider -q "http://127.0.0.1:8082/health?plugin=http&plugin=rpc"']
